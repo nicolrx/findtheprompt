@@ -1,2 +1,7 @@
-<h1>Find the Prompt</h1>
+<h1>Find The Prompt</h1>
 <p>Guess the AI prompt as quickly as possible. Everyday a new prompt to guess!</p>
+
+<%= image_tag @prompt.image_url, alt: "Prompt of the day" %>
+
+<p>Prompt:</p>
+<p><%= @prompt.full_prompt %></p>
