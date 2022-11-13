@@ -18,6 +18,14 @@ $color-grey: #d3d6da;
 	width: 85%;
 	font-size: 28px;
 	line-height: 52px;
+	> span {
+		white-space: nowrap;
+		display: inline-flex;
+		padding: 0 12px;
+		> span {
+			padding: 0 2.5px;
+		}
+	}
 }
 
 .letter-field {
@@ -80,8 +88,4 @@ $color-grey: #d3d6da;
 
 #social-container {
 	margin: 22px 0 0 0;
-}
-
-.prompt_word {
-	padding: 0 12px;
 }
