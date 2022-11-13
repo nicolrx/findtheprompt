@@ -58,9 +58,22 @@ $color-grey: #d3d6da;
 }
 
 #timer, #timer-over {
-	padding: 42px 0 24px 0;
+	min-height: 140px;
 	font-size: 28px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+}
+
+#prompt-result-container {
+	display: none;
+	text-align: center;
+	padding: 26px 0;
+	h2 {
+		margin-top: 0;
+	}
+}
+
+#social-container {
+	margin: 22px 0 0 0;
 }

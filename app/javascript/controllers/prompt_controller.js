@@ -52,15 +52,18 @@ export default class extends Controller {
 		if(check == true) {
 			let timer = document.getElementById("timer");
 			let score = timer.innerText;
-			var newTimer = document.createElement("div");
-			newTimer.setAttribute("id","timer-over");
-			newTimer.innerText = score;
-			timer.replaceWith(newTimer);
+			timer.style.display = "none"; 
+
+			// show results
+			var scoreDisplay = document.getElementById("score-result");
+			scoreDisplay.innerText = score;
+			var resultContainer = document.getElementById("prompt-result-container");
+			resultContainer.style.display = "block";
 
 			// fire some confettis
 			var count = 325;
 			var defaults = {
-				origin: { y: 0.73 }
+				origin: { y: 0.625 }
 			};
 
 			function fire(particleRatio, opts) {
@@ -91,12 +94,13 @@ export default class extends Controller {
 				spread: 120,
 				startVelocity: 40,
 			});
+
+
 		}
 	}
 
 	_launchTimer() {
 		let timer = document.getElementById("timer");
-		console.log(timer.innerText)
 		if(timer.innerText == "00:00") {
 			const clock = document.getElementById("timer");
 			let time = -1, intervalId;
