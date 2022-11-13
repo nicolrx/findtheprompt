@@ -10,9 +10,9 @@ $color-grey: #d3d6da;
 
 #prompt-form-container {
 	text-align: center;
-	margin: 32px auto 12px auto;
+	margin: auto;
 	width: 85%;
-	font-size: 1.45em;
+	font-size: 28px;
 	line-height: 52px;
 }
 
@@ -55,4 +55,12 @@ $color-grey: #d3d6da;
 	&:focus{
 		border: 2px solid #9f1239;
 	}
+}
+
+#timer, #timer-over {
+	padding: 42px 0 24px 0;
+	font-size: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }

@@ -6,6 +6,10 @@
 	<span>Source: <%= @prompt.image_source %></span>
 </div>
 
+<div id="timer">
+   00:00
+</div>
+
 <div id="prompt-form-container">
 	<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
 		<span class="prompt_word">
