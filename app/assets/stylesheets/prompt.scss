@@ -36,3 +36,23 @@ $color-grey: #d3d6da;
 		border: 2px solid #97999c;
 	}
 }
+
+.true {
+	background-color: #86efac;
+	border: 2px solid #86efac;
+	color: #15803d;
+	cursor: inherit;
+	&:focus{
+		border: 2px solid #86efac;
+	}
+}
+
+.false {
+	background-color: #fda4af;
+	border: 2px solid #9f1239;
+	color: #9f1239;
+	cursor: normal;
+	&:focus{
+		border: 2px solid #9f1239;
+	}
+}

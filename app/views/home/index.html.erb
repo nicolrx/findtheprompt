@@ -13,7 +13,7 @@
 				<% if letter.is_hidden == false %>
 					<span class="letter-given"><%= letter.content %></span>
 				<% else %>
-					<input type="text" class="letter-field" maxlength="1" data-answer="<%= letter.content %>" />
+					<span data-controller="prompt"><input type="text" class="letter-field" maxlength="1" data-answer="<%= letter.content %>" data-prompt-target="letterField" data-action="input->prompt#correct" /></span>
 				<% end %>
 			<% end %>
 		</span> 
