@@ -55,6 +55,9 @@ export default class extends Controller {
 			timer.style.display = "none"; 
 
 			// show results
+			var twitter = document.getElementById("twitter_share");
+			var twitter_text = twitter.getAttribute("href") + "&text=I found today's prompt in " + score + "!";
+			twitter.setAttribute("href", twitter_text);
 			var scoreDisplay = document.getElementById("score-result");
 			scoreDisplay.innerText = score;
 			var resultContainer = document.getElementById("prompt-result-container");

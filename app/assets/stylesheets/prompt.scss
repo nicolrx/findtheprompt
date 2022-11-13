@@ -2,6 +2,10 @@ $color-grey: #d3d6da;
 
 #prompt-image-container {
 	text-align: center;
+	min-height: 540px;
+	> img {
+		max-height: 512px;
+	}
 	> span {
 		font-size: 0.8em;
 		font-style: italic;
