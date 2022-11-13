@@ -1,20 +1,21 @@
-<p>Guess the AI prompt as quickly as possible. Everyday a new prompt to guess!</p>
+<p id="tagline">Find the AI prompt as quickly as possible. Everyday a new prompt to discover!</p>
 
-<%= image_tag @prompt.image_url, alt: "Prompt of the day" %>
+<div id="prompt-image-container">
+	<%= image_tag @prompt.image_url, alt: "Prompt of the day" %>
+	<br />
+	<span>Source: <%= @prompt.image_source %></span>
+</div>
 
-<p>Full Prompt:</p>
-<p><%= @prompt.full_prompt %></p>
-
-<p>Prompt with hidden letters:</p>
-<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
-	<span class="prompt_word">
-		<% word[1].each_with_index do |letter, letter_index| %>
-			<% if letter.is_hidden == false %> 
-				<%= letter.content %>
-			<% else %>
-				<input type="text" class="letter-field" />
+<div id="prompt-form-container">
+	<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
+		<span class="prompt_word">
+			<% word[1].each_with_index do |letter, letter_index| %>
+				<% if letter.is_hidden == false %>
+					<span class="letter-given"><%= letter.content %></span>
+				<% else %>
+					<input type="text" class="letter-field" maxlength="1" data-answer="<%= letter.content %>" />
+				<% end %>
 			<% end %>
-		<% end %>
-		 
-	</span>
-<% end %>
+		</span> 
+	<% end %>
+</div>
