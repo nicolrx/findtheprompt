@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "forest_liana", "~> 7.7"
+
+gem "sidekiq", "~> 7.0"

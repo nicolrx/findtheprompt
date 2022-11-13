@@ -3,5 +3,19 @@
 
 <%= image_tag @prompt.image_url, alt: "Prompt of the day" %>
 
-<p>Prompt:</p>
+<p>Full Prompt:</p>
 <p><%= @prompt.full_prompt %></p>
+
+<p>Prompt with hidden letters:</p>
+<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
+	<span class="prompt_word">
+		<% word[1].each_with_index do |letter, letter_index| %>
+			<% if letter.is_hidden == false %> 
+				<%= letter.content %>
+			<% else %>
+				<input type="text" class="letter-field" />
+			<% end %>
+		<% end %>
+		 
+	</span>
+<% end %>
