@@ -8,6 +8,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts/1 or /prompts/1.json
   def show
+		redirect_to root_path		
   end
 
   # GET /prompts/new
@@ -17,7 +18,27 @@ class PromptsController < ApplicationController
 
   # GET /prompts/1/edit
   def edit
+		redirect_to root_path
   end
+
+	def save_prompt_score
+		duration = DateTime.parse("00:" + params[:prompt_score])
+		time_spent_in_seconds = duration.minute * 60 + duration.second
+
+		puts time_spent_in_seconds
+		
+		prompt_score = PromptScore.new(
+			prompt_id: params[:prompt_id],
+			ip_address: request.remote_ip,
+			time_spent_in_seconds: time_spent_in_seconds
+		)
+
+		if prompt_score.save
+			respond_to do |format|
+				format.json { render json: {"value" => "success" } }
+			end			
+		end
+	end
 
   # POST /prompts or /prompts.json
   def create

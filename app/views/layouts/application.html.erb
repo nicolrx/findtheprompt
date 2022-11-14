@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta name="description" content="Find the AI prompt as quickly as possible. Everyday a new prompt to discover!">
+    <meta name="description" content="Find the AI prompt used to generate an image as quickly as possible. Everyday a new prompt to discover!">
 
     <%= favicon_link_tag 'favicon.png' %>
 
@@ -19,19 +19,19 @@
     <meta property="og:title" content="Find The Prompt">
     <meta property="og:url" content="<%= request.original_url.force_encoding('UTF-8') %>">
     <meta property="og:image" content="<%= image_url('findtheprompt-cover.png') %>">
-    <meta property="og:description" content="Find the AI prompt as quickly as possible. Everyday a new prompt to discover!">
+    <meta property="og:description" content="Find the AI prompt used to generate an image as quickly as possible. Everyday a new prompt to discover!">
     <meta property="og:site_name" content="La langue française">
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Find The Prompt">
-    <meta name="twitter:description" content="Find the AI prompt as quickly as possible. Everyday a new prompt to discover!">
+    <meta name="twitter:description" content="Find the AI prompt used to generate an image as quickly as possible. Everyday a new prompt to discover!">
     <meta name="twitter:image" content="<%= image_url('findtheprompt-cover.png') %>">
 		<meta property="twitter:domain" content="fintheprompt.com">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-		
+
 		<script defer data-domain="findtheprompt.com" src="https://plausible.io/js/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   </head>

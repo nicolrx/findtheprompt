@@ -54,6 +54,10 @@ export default class extends Controller {
 			let score = timer.innerText;
 			timer.style.display = "none"; 
 
+			// save score
+			var prompt_id = document.getElementById("prompt-form-container").getAttribute("data-prompt-id");
+			saveScore(prompt_id, score);
+
 			// show results
 			var twitter = document.getElementById("twitter_share");
 			var twitter_text = twitter.getAttribute("href") + "&text=I found today's prompt in " + score + "!";
@@ -97,8 +101,6 @@ export default class extends Controller {
 				spread: 120,
 				startVelocity: 40,
 			});
-
-
 		}
 	}
 
@@ -117,4 +119,27 @@ export default class extends Controller {
 			intervalId = setInterval(incrementTime, 1000);
 		}
 	}
+}
+
+function saveScore(prompt_id, score) {
+
+	$.ajax({
+		url: '/save_prompt_score', //Defined in your routes file
+		method: 'post',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		data: {
+				prompt_id: prompt_id,
+				prompt_score: score
+		},
+		success: function(data) {
+			if (data) {
+				console.log("Prompt score saved");
+			} else {
+				console.log("Prompt score not saved");
+			}
+		},
+		error: function() {
+			console.log("Ajax error!");
+		},
+	})
 }

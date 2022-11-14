@@ -1,4 +1,4 @@
-<p id="tagline">Find the AI prompt as quickly as possible. Everyday a new prompt to discover!</p>
+<p id="tagline">Find the AI prompt used to generate the following image as quickly as possible. Everyday a new prompt to discover!</p>
 
 <div id="prompt-image-container">
 	<%= image_tag @prompt.image_url, alt: "Prompt of the day" %>
@@ -19,7 +19,7 @@
    00:00
 </div>
 
-<div id="prompt-form-container">
+<div id="prompt-form-container" data-prompt-id="<%= @prompt.id %>">
 	<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
 		<span class="prompt_word">
 			<% word[1].each_with_index do |letter, letter_index| %>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root "home#index"
 
 	resources :prompts
+	post "save_prompt_score", to: "prompts#save_prompt_score"
 end

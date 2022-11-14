@@ -1,4 +1,7 @@
 import { Application } from "@hotwired/stimulus"
+import "jquery";
+
+window.$ = window.jQuery = jQuery;
 
 const application = Application.start()
 
