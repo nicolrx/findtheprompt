@@ -6,19 +6,6 @@
 	<span>Source: <%= @prompt.image_source %></span>
 </div>
 
-<div id="prompt-result-container">
-	<h2>You found the prompt in <span id="score-result"></span>!</h2>
-	<div id="social-container">
-		<%= link_to raw(show_svg("facebook_plain.svg")), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&display=popup", title: "Share on Facebook", target: "_blank" %>
-		<%= link_to raw(show_svg("twitter_plain.svg")), "https://twitter.com/intent/tweet?url=#{request.url}", title: "Share on Twitter", target: "_blank", id: "twitter_share" %>
-		<%= link_to raw(show_svg("linkedin_plain.svg")), "https://www.linkedin.com/sharing/share-offsite/?url=#{request.url}", title: "Share on LinkedIn", target: "_blank" %>
-	</div>
-</div>
-
-<div id="timer">
-   00:00
-</div>
-
 <div id="prompt-form-container" data-prompt-id="<%= @prompt.id %>">
 	<% @prompt.prompt_letters.group_by(&:word_index).each_with_index do |word, index| %>
 		<span class="prompt_word">
@@ -31,4 +18,17 @@
 			<% end %>
 		</span> 
 	<% end %>
+</div>
+
+<div id="prompt-result-container">
+	<h2>You found the prompt in <span id="score-result"></span>!</h2>
+	<div id="social-container">
+		<%= link_to raw(show_svg("facebook_plain.svg")), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&display=popup", title: "Share on Facebook", target: "_blank" %>
+		<%= link_to raw(show_svg("twitter_plain.svg")), "https://twitter.com/intent/tweet?url=#{request.url}", title: "Share on Twitter", target: "_blank", id: "twitter_share" %>
+		<%= link_to raw(show_svg("linkedin_plain.svg")), "https://www.linkedin.com/sharing/share-offsite/?url=#{request.url}", title: "Share on LinkedIn", target: "_blank" %>
+	</div>
+</div>
+
+<div id="timer">
+   00:00
 </div>

@@ -14,7 +14,7 @@ $color-grey: #d3d6da;
 
 #prompt-form-container {
 	text-align: center;
-	margin: auto;
+	margin: 28px auto;
 	width: 85%;
 	font-size: 28px;
 	line-height: 52px;
@@ -70,7 +70,7 @@ $color-grey: #d3d6da;
 }
 
 #timer, #timer-over {
-	min-height: 140px;
+	padding: 30px 0;
 	font-size: 28px;
 	display: flex;
 	align-items: center;
@@ -80,7 +80,7 @@ $color-grey: #d3d6da;
 #prompt-result-container {
 	display: none;
 	text-align: center;
-	padding: 26px 0;
+	padding: 10px 0 0 0;
 	h2 {
 		margin-top: 0;
 	}
