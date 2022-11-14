@@ -2,6 +2,7 @@ class Prompt < ApplicationRecord
 	after_create :divide_prompt
 
 	has_many :prompt_letters, dependent: :destroy
+	has_many :prompt_scores, dependent: :destroy
 
 	def divide_prompt
 		prompt_text = self.full_prompt
