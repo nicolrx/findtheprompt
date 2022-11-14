@@ -2,6 +2,7 @@ $color-grey: #d3d6da;
 
 #prompt-image-container {
 	text-align: center;
+	min-height: 540px;
 	> img {
 		max-height: 512px;
 		max-width: 100%;
@@ -90,5 +91,17 @@ $color-grey: #d3d6da;
 	margin: 22px 0 0 0;
 	> a {
 		padding: 0 5px;
+	}
+}
+
+
+@media (max-width: 47.99em) {
+
+	#prompt-image-container {
+		min-height: 320px;
+	}
+
+	#prompt-form-container {
+    width: 100%!important;
 	}
 }

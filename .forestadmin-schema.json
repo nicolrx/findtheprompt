@@ -100,6 +100,22 @@
       "widget": null,
       "validations": []
     }, {
+      "field": "prompt_scores",
+      "type": ["Number"],
+      "default_value": null,
+      "enums": null,
+      "integration": null,
+      "is_filterable": false,
+      "is_read_only": false,
+      "is_required": false,
+      "is_sortable": true,
+      "is_virtual": false,
+      "reference": "PromptScore.id",
+      "inverse_of": "prompt",
+      "relationship": "HasMany",
+      "widget": null,
+      "validations": []
+    }, {
       "field": "publication_date",
       "type": "Date",
       "default_value": null,
@@ -286,7 +302,7 @@
       "is_sortable": true,
       "is_virtual": false,
       "reference": "Prompt.id",
-      "inverse_of": null,
+      "inverse_of": "prompt_scores",
       "relationship": "BelongsTo",
       "widget": null,
       "validations": []
