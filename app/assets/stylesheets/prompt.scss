@@ -2,9 +2,9 @@ $color-grey: #d3d6da;
 
 #prompt-image-container {
 	text-align: center;
-	min-height: 540px;
 	> img {
 		max-height: 512px;
+		max-width: 100%;
 	}
 	> span {
 		font-size: 0.8em;
@@ -88,4 +88,7 @@ $color-grey: #d3d6da;
 
 #social-container {
 	margin: 22px 0 0 0;
+	> a {
+		padding: 0 5px;
+	}
 }
