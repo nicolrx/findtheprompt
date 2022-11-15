@@ -96,6 +96,8 @@ GEM
       reline (>= 0.3.1)
     erubi (1.11.0)
     ffi (1.15.5)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     forest_liana (7.7.1)
       arel-helpers
       bcrypt
@@ -311,6 +313,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  figaro
   forest_liana (~> 7.7)
   importmap-rails
   jbuilder
