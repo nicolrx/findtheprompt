@@ -3,7 +3,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts or /prompts.json
   def index
-		@prompts = Prompt.all
+		@prompts = Prompt.where("publication_date < ?", Date.today)
   end
 
   # GET /prompts/1 or /prompts/1.json
