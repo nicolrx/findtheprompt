@@ -1,5 +1,7 @@
 class Prompt < ApplicationRecord
 	after_create :divide_prompt
+	before_create :set_slug, unless: :slug?
+	validates :slug, uniqueness: true
 
 	has_many :prompt_letters, dependent: :destroy
 	has_many :prompt_scores, dependent: :destroy
@@ -16,5 +18,13 @@ class Prompt < ApplicationRecord
 				)
 			end
 		end
+	end
+
+	def to_param
+		slug
+	end
+
+	def set_slug
+		self.slug = self.publication_date.strftime("%d-%m-%Y")
 	end
 end

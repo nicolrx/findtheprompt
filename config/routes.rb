@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-	resources :prompts
+	resources :prompts, param: :slug
 	post "save_prompt_score", to: "prompts#save_prompt_score"
 end

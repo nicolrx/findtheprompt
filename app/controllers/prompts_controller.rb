@@ -3,12 +3,11 @@ class PromptsController < ApplicationController
 
   # GET /prompts or /prompts.json
   def index
-    redirect_to root_path
+		@prompts = Prompt.all
   end
 
   # GET /prompts/1 or /prompts/1.json
   def show
-		redirect_to root_path		
   end
 
   # GET /prompts/new
@@ -81,7 +80,7 @@ class PromptsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prompt
-      @prompt = Prompt.find(params[:id])
+      @prompt = Prompt.find_by_slug!(params[:slug])
     end
 
     # Only allow a list of trusted parameters through.

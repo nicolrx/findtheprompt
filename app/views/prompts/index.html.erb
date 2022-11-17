@@ -1,0 +1,7 @@
+<h1>Archives</h1>
+
+<ul>
+	<% @prompts.each do |prompt| %>
+		<li><%= link_to prompt.publication_date.strftime("%d/%m/%Y"), prompt_path(prompt.slug) %></li>
+	<% end %>
+</ul>
