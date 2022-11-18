@@ -1,3 +1,7 @@
+<%= content_for :meta_title, "Find The Prompt - #{@prompt.publication_date.strftime("%d/%m/%Y")}" %>
+<%= content_for :meta_og_title, "Find The Prompt - #{@prompt.publication_date.strftime("%d/%m/%Y")}" %>
+<%= content_for :meta_image, @prompt.image_url ||= DEFAULT_META['meta_image'] %>
+
 <p id="tagline">Find the AI prompt used to generate the following image as quickly as possible. Everyday a new prompt to discover!</p>
 
 <div id="prompt-image-container">

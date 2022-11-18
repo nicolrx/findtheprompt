@@ -8,6 +8,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts/1 or /prompts/1.json
   def show
+		@share_url = "https://findtheprompt.com/prompts/" + @prompt.slug
   end
 
   # GET /prompts/new

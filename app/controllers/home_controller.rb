@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	before_action :set_prompt, only: [:index]
 	def index
-	
+		@share_url = "https://findtheprompt.com/prompts/" + @prompt.slug
 	end
 
 	private

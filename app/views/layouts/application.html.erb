@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Find The Prompt</title>
+    <title><%= meta_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 				<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
     <%= csrf_meta_tags %>
@@ -14,17 +14,18 @@
 		<meta name="keywords" content="find the prompt,prompt AI,AI prompt">
 
     <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="Find The Prompt">
+    <meta property="og:title" content="<%= meta_title %>">
     <meta property="og:url" content="<%= request.original_url.force_encoding('UTF-8') %>">
-    <meta property="og:image" content="<%= @prompt.try(:image_url) || image_url('findtheprompt-cover.png') %>">
+    <meta property="og:image" content="<%= meta_image %>">
+		<meta property="og:type" content="<%= meta_og_type %>">
     <meta property="og:description" content="Find the AI prompt used to generate an image as quickly as possible. Everyday a new prompt to discover!">
-    <meta property="og:site_name" content="La langue française">
+    <meta property="og:site_name" content="Find The Prompt">
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Find The Prompt">
+    <meta name="twitter:title" content="<%= meta_title %>">
     <meta name="twitter:description" content="Find the AI prompt used to generate an image as quickly as possible. Everyday a new prompt to discover!">
-    <meta name="twitter:image" content="<%= @prompt.try(:image_url) || image_url('findtheprompt-cover.png') %>">
+    <meta name="twitter:image" content="<%= meta_image %>">
 		<meta property="twitter:domain" content="fintheprompt.com">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
