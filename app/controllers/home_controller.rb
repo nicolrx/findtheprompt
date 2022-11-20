@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 		if @prompt.present?
 			@prompt = @prompt.first
 		else
-			@prompt = Prompt.includes(:prompt_letters).all.last
+			@prompt = Prompt.includes(:prompt_letters).where("publication_date < ?", date).last
 		end
 	end
 	
