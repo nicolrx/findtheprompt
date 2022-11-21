@@ -1,6 +1,7 @@
 class Prompt < ApplicationRecord
 	after_create :divide_prompt
 	before_create :set_slug, unless: :slug?
+	before_create :set_publication_date, unless: :publication_date?
 	validates :slug, uniqueness: true
 
 	has_many :prompt_letters, dependent: :destroy
@@ -26,5 +27,9 @@ class Prompt < ApplicationRecord
 
 	def set_slug
 		self.slug = self.publication_date.strftime("%d-%m-%Y")
+	end
+
+	def set_publication_date
+		self.publication_date = Prompt.all.last.publication_date + 1.day
 	end
 end
