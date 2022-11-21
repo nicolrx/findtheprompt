@@ -4,7 +4,19 @@ export default class extends Controller {
 	static targets = [ "letterField" ]
 
 	connect() {
-		this._selectNextElement();
+		var inputs = document.querySelectorAll('.letter-field');
+		let nextEle;
+		for (var i = 0; i < inputs.length; i++) {
+			if (!inputs[i].classList.contains("true")) {
+				nextEle = inputs[i];
+				break;
+			}
+		}
+
+		if(nextEle) {
+			nextEle.focus();
+			nextEle.select();
+		}
 	}
 
   correct() {
@@ -17,7 +29,7 @@ export default class extends Controller {
 			letterField.classList.remove("false");
 			letterField.classList.add("true");
 			letterField.setAttribute('disabled', '');
-			this._selectNextElement();
+			this._selectNextElement(letterField);
 			this._checkIfFinished();
 		} else {
 			letterField.classList.remove("true");
@@ -25,7 +37,19 @@ export default class extends Controller {
 		}
   }
 
-	_selectNextElement() {
+	_selectNextElement(letterField) {
+		// let nextEle;
+		// let emptyField = currentLetter.nextElementSibling;
+		// console.log(emptyField);
+
+		// while (emptyField) {
+		// 	if (!(emptyField.classList.contains('true'))) {
+		// 		nextEle = emptyField;
+		// 		break;
+		// 	}
+
+		// 	emptyField = emptyField.nextElementSibling;
+		// }
 		var inputs = document.querySelectorAll('.letter-field');
 		let nextEle;
 		for (var i = 0; i < inputs.length; i++) {
@@ -38,6 +62,35 @@ export default class extends Controller {
 			nextEle.focus();
 			nextEle.select();
 		}
+
+
+
+		var focussableElements = '.letter-field:not([true])';
+		if (letterField) {
+			var focussable = Array.prototype.filter.call(document.querySelectorAll(focussableElements),
+				function(element) {
+					return element.offsetWidth > 0 || element.offsetHeight > 0 || element === letterField
+				});
+			var index = focussable.indexOf(letterField);
+			if(focussable[index + 1]) {
+				focussable[index + 1].focus();
+				focussable[index + 1].select();
+			} else {
+				var inputs = document.querySelectorAll('.letter-field');
+				let lastEle;
+				for (var i = 0; i < inputs.length; i++) {
+					if (!inputs[i].classList.contains("true")) {
+						lastEle = inputs[i];
+						break;
+					}
+				}
+				if(lastEle) {
+					lastEle.focus();
+					lastEle.select();
+				}
+			}
+		}
+  
 	}
 
 	_checkIfFinished() {
