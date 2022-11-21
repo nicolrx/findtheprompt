@@ -1,7 +1,7 @@
 class Prompt < ApplicationRecord
 	after_create :divide_prompt
-	before_create :set_slug, unless: :slug?
 	before_create :set_publication_date, unless: :publication_date?
+	before_create :set_slug, unless: :slug?
 	validates :slug, uniqueness: true
 
 	has_many :prompt_letters, dependent: :destroy
